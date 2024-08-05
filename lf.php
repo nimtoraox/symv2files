@@ -4,7 +4,7 @@
  * @version : 2.8
 **/
 
-$password = "kod3"; // Password 
+$password = "blackmas"; // Password 
 
 session_start();
 error_reporting(0);
